@@ -1,14 +1,3 @@
-"""
-    Ingegneria degli Algoritmi, Progetto 1
-
-    File name: StrutturaPrincipale.py
-    Date created: 30/11/2018
-    Date last modified:
-    Python Version: 3.7
-
-    Autori: Fabio Buracchi, Danilo D'Amico
-"""
-
 from codiceTutor.avlTree import AVLTree
 from strutturaDati.LinkedListDictionarySon import LinkedListDictionarySon
 
@@ -97,27 +86,3 @@ class StrutturaPrincipale:
 
         self.makeLinkedListLoop(linkedList, curr.leftSon, alberoAVL)
         self.makeLinkedListLoop(linkedList, curr.rightSon, alberoAVL)
-
-"""
-a = StrutturaPrincipale(102, 2, 25)
-print(a.v)
-a.insert(12, "prova")
-a.insert(13, "provolone")
-a.insert(14, "provoletto")
-a.insert(15, "prada")
-a.insert(16, "pronto")
-a.insert(17, "prova costume")
-print("ora stampo")
-print(a.v)
-a.v[0].print()
-a.delete(12)
-print("ora stampo")
-print(a.v)
-a.v[0].print()
-a.ciao()
-a.delete(13)
-a.delete(14)
-a.delete(15)
-a.delete(16)
-a.delete(17)
-"""
