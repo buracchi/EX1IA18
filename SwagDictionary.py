@@ -1,4 +1,4 @@
-from strutturaDati.linkedListAVLDictionaryHybrid import LinkedListAVLDictionaryHybrid
+from linkedListAVLDictionaryHybrid import LinkedListAVLDictionaryHybrid
 
 class SwagDictionary:
 
