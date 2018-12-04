@@ -1,8 +1,15 @@
 '''
-This class is a kind of datastructured wich store the data
-as a dictionary in a linked list until this list reach the
-max number of element allowed, then the datastructure
-switch in an AVL tree
+    File name: linkedListAVLDictionaryHybrid.py
+    Authors: Fabio Buracchi, Danilo D'Amico (in ordine di importanza, non alfabetico)
+    Date created: 04/12/2018
+    Date last modified: 04/12/2018
+    Python Version: 3.7
+
+    Questo modulo contiene l'implementazione
+    di un dizionario con una lista collegata
+    che viene sostituita da un albero AVL se
+    super un numero di elementi dato come
+    parametro
 '''
 
 from Librerie.avlTree import AVLTree
@@ -10,13 +17,13 @@ from Librerie.linkedListDictionary import LinkedListDictionary
 
 class LinkedListAVLDictionaryHybrid:
 
-    def __init__(self, maxLen):
-        self.switchingLength = maxLen
+    def __init__(self, len):
+        self.switchingLength = len
         self.dataStructure = LinkedListDictionary()
     
     def insert(self, key, value):
         self.dataStructure.insert(key, value)
-        if ((type(self.dataStructure) is LinkedListDictionary) and (self.dataStructure.size() >= self.switchingLength)):
+        if (type(self.dataStructure) is LinkedListDictionary) and (self.dataStructure.size() >= self.switchingLength):
             self.dataStructure = self.switchToAVL()
 
     def delete(self, key):
@@ -32,14 +39,14 @@ class LinkedListAVLDictionaryHybrid:
     '''
 
     def switchToAVL(self):
-            avl = AVLTree()
+            AVL = AVLTree()
             current = self.dataStructure.theList.first
             while current is not None:
                 key = current.elem[self.dataStructure.KEY_INDEX]
                 value = current.elem[self.dataStructure.VALUE_INDEX]
-                avl.insert(key, value)
+                AVL.insert(key, value)
                 current = current.next
-            return avl
+            return AVL
 
     def switchToLinkedList(self):
         linkedList = LinkedListDictionary()
