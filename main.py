@@ -1,6 +1,6 @@
 import time
 import random
-from strutturaDati.swagDictionary import SwagDictionary
+from swagDictionary import SwagDictionary
 
 n = 100000000000
 
