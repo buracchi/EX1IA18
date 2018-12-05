@@ -28,7 +28,7 @@ class LinkedListAVLDictionaryHybrid:
 
     def delete(self, key):
         self.dataStructure.delete(key)
-        if ((type(self.dataStructure) is AVLTree) and (self.dataStructure.size() < self.switchingLength)):
+        if (type(self.dataStructure) is AVLTree) and (self.dataStructure.size() < self.switchingLength):
             self.dataStructure = self.switchToLinkedList()
 
     def search(self, key):
