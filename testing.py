@@ -15,7 +15,7 @@ def input(s):                               #la probabilità che esistano due el
     random.seed(s)
     l = []
     for i in range (0, y):
-        l.append(int(random.random() * y * 1000) - y * 500)
+        l.append(int(random.random() * z * y * 1000) - y * z * 500)
     return l
 
 def testSwag(v1, v2, v3):
@@ -54,14 +54,15 @@ def testDictionary():
         t = t + (time.time() - start)
     print ("PyDictionary\t :\t\t\t" +str(t / x))
 
-x = 10  #numero di test da fare
-y = 10000 #numero di elementi su cui opera l'array
+x = 100      #numero di test da fare
+y = 100   #numero di elementi su cui opera l'array
+z = 0.01       #valore dispersione dei valori
 
 print("media di " + str(x) +" prove sostenute con " + str(y) + " valori random identici tra test differenti.\n")
-print("valori utilizzati compresi tra: " + str(y * -500) + ", " + str(y * 500)+ "\n")
+print("valori utilizzati compresi tra: " + str(y * z * -500) + ", " + str(y * z * 500)+ "\n")
 testDictionary()
-for i in range(0, 6):
-    for j in range(2, 8):
+for i in range(0, 5):
+    for j in range(1, 5):
         testSwag(2**(i+3), 10**j, 0)
         testSwag(2**(i+3), 0, -10**j)
         testSwag(2**(i+3), 10**j, -10**j)
