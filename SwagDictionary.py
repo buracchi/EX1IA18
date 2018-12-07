@@ -26,7 +26,7 @@ class SwagDictionary:
 
     def insert(self, key, value):
         i = self.getIndexFromKey(key)
-        self.v[i].insert(key,value)
+        self.v[i].insert(key, value)
 
     def delete(self, key):
         i = self.getIndexFromKey(key)
