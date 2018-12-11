@@ -10,9 +10,9 @@
     bilanciato in altezza
 """
 
-from codiceTutor.binaryTree import BinaryTree
-from codiceTutor.binaryTree import BinaryNode
-from codiceTutor.binarySearchTree import BinarySearchTree
+from Librerie.binaryTree import BinaryTree
+from Librerie.binaryTree import BinaryNode
+from Librerie.binarySearchTree import BinarySearchTree
 
 
 class AVLTree(BinarySearchTree):

@@ -9,8 +9,8 @@
     di un dizionario con una lista collegata
 """
 
-from codiceTutor.Queue import ListaCollegata
-from codiceTutor.Dictionary import Dictionary
+from Librerie.Queue import ListaCollegata
+from Librerie.Dictionary import Dictionary
 
 
 class LinkedListDictionary(Dictionary):
@@ -78,25 +78,18 @@ class LinkedListDictionary(Dictionary):
         else:
             pred.next = current.next
 
+    '''
+    METODO AGGIUNTO ALLA CLASSE (IMPLEMENTARLO PIU' IN PROFONDITA'?)
+    '''
 
-if __name__ == "__main__":
-    dic = LinkedListDictionary()
-
-    data = [100, 20, 50, 30, 22, 120, 56]
-    for d in data:
-        dic.insert(d, d * 2)
-
-    dic.print()
-
-    data.reverse()
-    for s in data:
-        print("Search for key {} returned {}".format(s, dic.search(s)))
-
-    dic.delete(30)
-    print("Deleted key 30")
-    dic.print()
-
-    dic.delete(56)
-    print("Deleted key 56")
-    dic.print()
+    def size(self):
+        if self.theList.isEmpty():
+            return 0
+        else:
+            length = 0
+            current = self.theList.first
+            while current is not None:
+                length += 1
+                current = current.next
+            return length
 

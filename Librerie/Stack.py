@@ -10,7 +10,7 @@
     check if the list is empty and print all items following a LIFO scheduling.
 """
 
-from codiceTutor.LinkedList import ListaCollegata
+from Librerie.LinkedList import ListaCollegata
 
 
 """ 

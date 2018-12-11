@@ -19,7 +19,7 @@ sys.path.append(str(os.environ.get("PYTHONPATH")) + "/Lez2/")
 # it needs to specify the path
 # $PYTHONPATH is the environment variable containing the project home
 
-from codiceTutor.LinkedList import ListaCollegata
+from Librerie.LinkedList import ListaCollegata
 
 """
     Implementation of a FIFO queue using a linked list.

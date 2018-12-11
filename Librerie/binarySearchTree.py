@@ -9,8 +9,8 @@
     dell'albero binario di ricerca (BST)
 """
 
-from codiceTutor.binaryTree import *
-from codiceTutor.Dictionary import Dictionary
+from Librerie.binaryTree import *
+from Librerie.Dictionary import Dictionary
 
 
 class BinarySearchTree(Dictionary):

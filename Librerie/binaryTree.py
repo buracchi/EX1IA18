@@ -8,8 +8,8 @@
     Questo modulo contiene implementazione di alberi binari
 """
 
-from codiceTutor.Stack import PilaArrayList
-from codiceTutor.tree import Tree as Tree
+from Librerie.Stack import PilaArrayList
+from Librerie.tree import Tree as Tree
 
 
 class BinaryNode:
@@ -214,28 +214,3 @@ class BinaryTree(Tree):
             if current[0].leftSon is not None:
                 stack.push([current[0].leftSon, level + 1])
         print("-- Tree End -- ")
-
-
-if __name__ == "__main__":
-
-    t = BinaryTree(BinaryNode(1))
-    t.insertAsLeftSubTree(t.root,                   BinaryTree(BinaryNode(2)))
-    t.insertAsRightSubTree(t.root,                  BinaryTree(BinaryNode(3)))
-    t.insertAsLeftSubTree(t.root.leftSon,           BinaryTree(BinaryNode(4)))
-    t.insertAsRightSubTree(t.root.leftSon,          BinaryTree(BinaryNode(5)))
-    t.insertAsRightSubTree(t.root.rightSon,         BinaryTree(BinaryNode(6)))
-    t.insertAsLeftSubTree(t.root.leftSon.leftSon,   BinaryTree(BinaryNode(7)))
-    print(f"Tree has {t.nodesNumber()} nodes")
-    t.print()
-    print(f"Sons of root are {t.sonsOf(t.root)}")
-    print(f"Root's degree is {t.degree(t.root)}")
-    t.cutLeft(t.root)
-    print("Deleted left subtree from root")
-    print(f"{t.nodesNumber()} nodes left")
-    t.print()
-    print(f"Root's degree is now {t.degree(t.root)}")
-    t.cut(t.root)
-    print("Removed subtree in root with cut() method")
-    print(f"{t.nodesNumber()} nodes left")
-
-
