@@ -40,7 +40,7 @@ def testSwag(v1, v2, v3):   # b è v1, M = b + b * int(v2 / b), m = b * int(v3 /
             d.delete(v[j])
 
         t = t + (time.time() - start)
-    FillCSV(str (b), str(t), "swagDictionary")
+    FillCSV(str (b), str(t), "customDictionary")
     print ("CustomDictionary\t" + "(b : " + str(b) + "\tmax : " + str(M) + "\tmin : " + str(m) + ")\t:\t" +str(t / x))
 
 def testDictionary():
@@ -76,11 +76,5 @@ if __name__ == "__main__":
             y = 100*10**j
             z = 0.01
             testSwag(2 ** i, 500 * y*z, - 500 * y*z)  # molto vicino
-
             z = 0.10   # maggiore o uguale di 1!
             testSwag(2 **i, 50 * y*z, - 50 * y*z)   # molto lontano
-
-#
-#    z * y * 1000 - y * z * 500
-#   min = -y*500
-#
