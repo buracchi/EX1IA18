@@ -35,7 +35,7 @@ def testSwag(v1, v2, v3):
         for j in range(0, y):
             d.search(v[j])
         t = t + (time.time() - start)
-    FillCSV(str (x), str(t), "swagDictionary")
+    FillCSV(str (b), str(t), "swagDictionary")
     print ("CustomDictionary\t" + "(b : " + str(b) + "\tmax : " + str(M) + "\tmin : " + str(m) + ")\t:\t" +str(t / x))
 
 def testDictionary():

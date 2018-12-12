@@ -1,6 +1,6 @@
 
 
-def FillCSV(numeroElementi, time, filename):      # ascissa, ordinata, "nomeFile"
+def FillCSV(ascissa, ordinata, filename):
     file = open(filename + ".csv", "a")
-    file.write(numeroElementi + ",\t" + time + "\n")
+    file.write(ascissa + ",\t" + ordinata + "\n")
     file.close()
