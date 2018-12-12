@@ -78,19 +78,16 @@ def testDictionary():
 
 
 if __name__ == "__main__":
-
-    print("media di " + str(x) +" prove sostenute con " + str(y) + " valori random identici tra test differenti.\n")
-    print("valori utilizzati compresi tra: " + str(y * z * -500) + ", " + str(y * z * 500)+ "\n")
     testDictionary()
-
 
     print("primo test: molta dispersione\n") # uso lo z definito in alto: z = 0.001
     for i in range(1,4):
-        print("test con" + str(y**i) + "elementi\n")
-        testSwag(6 + 2**i, 500*(y**i), -500*(y**i))
+        y = 10*(10**i)
+        print("test con\t" + str(y) + "\telementi\n")
+        testSwag(6 + 2**i, 500*y, -500*y)
 
     print("secondo test: poca dispersione\n")
     z = 1.0
     for i in range(1,4):
-        print("test con\t" + str(y**i) + "\telementi\n")
-        testSwag(6 + 2**i, 50*(y**i), -50*(y**i))
+        print("test con\t" + str(y) + "\telementi\n")
+        testSwag(6 + 2**i, 50*y, -50*y)
