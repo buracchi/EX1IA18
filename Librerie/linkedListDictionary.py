@@ -9,7 +9,8 @@
     di un dizionario con una lista collegata
 """
 
-from Librerie.Queue import ListaCollegata
+
+from Librerie.LinkedList import ListaCollegata
 from Librerie.Dictionary import Dictionary
 
 
@@ -78,11 +79,16 @@ class LinkedListDictionary(Dictionary):
         else:
             pred.next = current.next
 
-    '''
-    METODO AGGIUNTO ALLA CLASSE (IMPLEMENTARLO PIU' IN PROFONDITA'?)
-    '''
+    """
+    Metodo aggiuntivo
+    """
 
     def size(self):
+
+        """
+        O(n)
+        """
+
         if self.theList.isEmpty():
             return 0
         else:

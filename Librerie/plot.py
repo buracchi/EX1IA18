@@ -1,16 +1,15 @@
 import matplotlib.pyplot as plt
-#from scipy import stats
 from pandas import read_csv
 import numpy
 
 def plot():
 
-    names = ["swagDictionary"]#, "PyDictionary"] #filenames
+    names = ["swagDictionary"]  # "PyDictionary"] #filenames
 
     c = 0       #color
     for f in names:
         d = read_csv("../" + f + ".csv", sep = ',', header = None)  # read file
-        #d e' un dataframe: in pratica è una matrice. In d[i] c'è l'i-esima colonna
+        #   d e' un dataframe: in pratica è una matrice. In d[i] c'è l'i-esima colonna
         x = d[0].values
         y = d[1].values
         plt.plot(x, y, color = "C" + str(c), label = f)
@@ -38,5 +37,5 @@ def histogram():
     plt.show()
 
 if(__name__ == "__main__"):
-    #plot()
+    plot()
     histogram()

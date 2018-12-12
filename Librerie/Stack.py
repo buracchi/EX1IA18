@@ -138,19 +138,3 @@ def testStack(s):
     print("Pop:", s.pop())
     print("Top:", s.top())
     s.printOrdered()
-
-
-# to run this module directly (NOT imported in another one)
-if __name__ == "__main__" :
-
-    print("Pila - Lista Collegata")
-    s = PilaListaCollegata()
-    testStack(s)
-
-    print("Pila - ArrayList_dummy")
-    s = PilaArrayList_dummy()
-    testStack(s)
-
-    print("Pila - ArrayList")
-    s = PilaArrayList()
-    testStack(s)

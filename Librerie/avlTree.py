@@ -210,28 +210,3 @@ class AVLTree(BinarySearchTree):
                 self.__setHeight(u, self.__height(p))
                 self.__setHeight(p, th)
                 self.cutSingleSon(p)
-
-
-if __name__ == "__main__":
-    avl = AVLTree()
-    print(type(avl))
-
-    data = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10]
-
-    for d in data:
-        avl.insert(d, d * 2)
-        print(f"Inserted ({d}, {d * 2}) tuple")
-    avl.print()
-    print(f"After {len(data)} insertions, bst has {avl.size()} elements")
-
-    print(f"Pred of node with key 100 {avl.pred(100)}")
-    print(f"Pred of node with key 70 {avl.pred(70)}")
-    print(f"Tree max from root is {avl.max(avl.tree.root)}")
-
-    data.reverse()
-    for s in data:
-        print(f"Search for key {s} returned {avl.search(s)}")
-
-
-    avl.delete(30)
-    avl.print()
