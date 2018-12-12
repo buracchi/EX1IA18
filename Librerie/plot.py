@@ -4,7 +4,7 @@ import numpy
 
 def plot():
 
-    names = ["swagDictionary"]  # "PyDictionary"] #filenames
+    names = ["customDictionary", "pyDictionary"] #filenames
 
     c = 0       #color
     for f in names:
@@ -20,7 +20,7 @@ def plot():
     plt.show()
 
 def histogram():
-    data = read_csv("../swagDictionary.csv", sep = ',', header = None)  # read file
+    data = read_csv("../customDictionary.csv", sep = ',', header = None)  # read file
     data = data[0]
 
     binNumber = max(int(round(numpy.log(max(data) - min(data)))), 25)
