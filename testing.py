@@ -1,6 +1,7 @@
 import time
 import random
-from swagDictionary import SwagDictionary
+from customDictionary import CustomDictionary
+from fillCSV import FillCSV
 
 #Gli imput non possono essere identici!
 
@@ -25,7 +26,7 @@ def testSwag(v1, v2, v3):
         b = v1
         M = b + b * int(v2 / b)
         m = b * int(v3 / b)
-        d = SwagDictionary(M,m,b)
+        d = CustomDictionary(M, m, b)
         start = time.time()
         for j in range(0, y):
             d.insert(v[j], v[j])
@@ -34,7 +35,8 @@ def testSwag(v1, v2, v3):
         for j in range(0, y):
             d.search(v[j])
         t = t + (time.time() - start)
-    print ("SwagDictionary\t" + "(b : " + str(b) + "\tmax : " + str(M) + "\tmin : " + str(m) + ")\t:\t" +str(t / x))
+    FillCSV(str (x), str(t), "swagDictionary")
+    print ("CustomDictionary\t" + "(b : " + str(b) + "\tmax : " + str(M) + "\tmin : " + str(m) + ")\t:\t" +str(t / x))
 
 def testDictionary():
     t = 0
