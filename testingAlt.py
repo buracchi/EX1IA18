@@ -54,7 +54,7 @@ def testSwag(b, v2, v3):
         elapsed = elapsed + (time.time() - start)
 
     tempoMedio = elapsed/x
-    FillCSV(str (b), str(tempoMedio), "swagDictionary")
+    FillCSV(str (b), str(tempoMedio), "customDictionary")
     print ("CustomDictionary\t" + "(b : " + str(b) + "\tmax : " + str(M) + "\tmin : " + str(m) + ")\t:\t" +str(tempoMedio))
 
 def testDictionary():
