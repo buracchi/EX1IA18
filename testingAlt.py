@@ -66,12 +66,12 @@ def testDictionary():
         for j in range(0, y):
             d[v[j]] = v[j]
         for j in range(0, y):
+            d.get(v[j])
+        for j in range(0, y):
             try:
                 d.pop(v[j])
             except:
                 None
-        for j in range(0, y):
-            d.get(v[j])
         t = t + (time.time() - start)
     print ("PyDictionary\t :\t\t\t" +str(t / x))
 
