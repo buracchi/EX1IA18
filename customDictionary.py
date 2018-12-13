@@ -12,7 +12,7 @@
     (max-min)%b == 0.
 '''
 
-from linkedListAVLDictionaryHybrid import LinkedListAVLDictionaryHybrid
+from LinkedListAVLDictionaryHybrid import LinkedListAVLDictionaryHybrid
 
 class CustomDictionary:
 
