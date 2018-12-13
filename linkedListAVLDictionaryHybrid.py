@@ -29,8 +29,9 @@ class LinkedListAVLDictionaryHybrid:
     
     def insert(self, key, value):
         """
-        AvlTree: O(nlogn)       caso switchToAvl
+        AvlTree: O(logn)
         LinkedListDictionary O(1)
+        il costo sale a O(nlogn) nel caso si entri nella condizione descritta dall'if
 
         :param key, value:
         """
@@ -40,8 +41,9 @@ class LinkedListAVLDictionaryHybrid:
 
     def delete(self, key):
         """
-        AvlTree: O(n)       caso switchToLinkedList
+        AvlTree: O(logn)
         LinkedListDictionary O(n)
+        il costo diventa O(n) nel caso si entri nella condizione descritta dall'if
 
         :param key:
         """
