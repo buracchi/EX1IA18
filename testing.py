@@ -18,6 +18,7 @@ def FillCSV(ascissa, ordinata, filename):
 
 def input(n, z = 1):
     """
+    :param s: seme che assicura che strutture di memoria differenti vengano testate con elementi identici
     :param n: numero di elemetni da generare
     :param z: indice di dispersione >=1
     :return:
@@ -25,6 +26,10 @@ def input(n, z = 1):
     la probabilità che esistano due elementi identici nella lista è dello 0.001%
     I valori generati sono compresi nell'intervallo (- n * z * 500, n * z * 500)
     """
+    #random.seed(s)
+    #l = []
+    #for i in range (0, n):
+        #l.append(int(random.random() * z * n * 1000) - n * z * 500)
     return int(random.random() * z * n * 1000) - n * z * 500
 
 def testSwag(n, z, b, vM, vm):
