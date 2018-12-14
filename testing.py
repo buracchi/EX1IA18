@@ -1,7 +1,6 @@
 import time
 import random
 from customDictionary import CustomDictionary
-from fillCSV import FillCSV
 
 '''
 Caricare una lista di elementi casuali e testarla per ogni tipo
@@ -12,9 +11,13 @@ variare degli algoritmi e dei parametri
 
 x = 100         # numero di esecuzioni di ciascun test su cui fare la media
 
-def input(s, n, z = 1):
+def FillCSV(ascissa, ordinata, filename):
+    file = open(filename + ".csv", "a")
+    file.write(ascissa + ",\t" + ordinata + "\n")
+    file.close()
+
+def input(n, z = 1):
     """
-    :param s: seme che assicura che strutture di memoria differenti vengano testate con elementi identici
     :param n: numero di elemetni da generare
     :param z: indice di dispersione >=1
     :return:
@@ -22,14 +25,9 @@ def input(s, n, z = 1):
     la probabilità che esistano due elementi identici nella lista è dello 0.001%
     I valori generati sono compresi nell'intervallo (- n * z * 500, n * z * 500)
     """
-    random.seed(s)
-    l = []
-    for i in range (0, n):
-        l.append(int(random.random() * z * n * 1000) - n * z * 500)
-    return l
+    return int(random.random() * z * n * 1000) - n * z * 500
 
 def testSwag(n, z, b, vM, vm):
-
     """
     :param n: numero di operazioni da effettuare
     :param z: indice di dispersione >=1
@@ -38,64 +36,67 @@ def testSwag(n, z, b, vM, vm):
     :param vm: parametro per calcolare il minimo
     :return:
     """
-    M = b + b * int(vM / b)     # max
-    m = b * int(vm / b)         # min
     elapsed = 0
-    for i in range(0, x):           #   numero di test
-        v = input(i, n, z)
+    for i in range(0, x):
+        random.seed = i
         start = time.time()
-        d = CustomDictionary(M, m, b)
+        d = CustomDictionary(b + b * int(vM / b), b * int(vm / b), b)
         for j in range(0, n):
-            d.insert(v[j], v[j])
+            d.insert(input(n, z), input(n, z))
         for j in range(0, n):
-            d.search(v[j])
+            d.search(input(n, z))
         for j in range(0, n):
-            d.delete(v[j])
+            d.delete(input(n, z))
         elapsed += time.time() - start
-    FillCSV(str(n), str(elapsed / x), str (b)+"./Data/customDictionaryUtilizzo")
+    FillCSV(str(n), str(elapsed / x), "./Data/Utilizzo"+str(z == 1)+"CustomDictionary")
+    d = CustomDictionary(b + b * int(vM / b), b * int(vm / b), b)
     elapsed = 0
-    d = CustomDictionary(M, m, b)
-    for i in range(0, x):           #   numero di test
-        v = input(i, n, z)
+    for i in range(0, x):
+        random.seed = i
         start = time.time()
         for j in range(0, n):
-            d.insert(v[j], v[j])
-        for j in range(0, n):
-            d.search(v[j])
-        for j in range(0, n):
-            d.delete(v[j])
+            d.insert(input(n, z), input(n, z))
         elapsed += time.time() - start
-    FillCSV(str(n), str(elapsed / x), str (b)+"./Data/customDictionaryInsert")
-    for i in range(0, x):           #   numero di test
-        v = input(i, n, z)
-        M = b + b * int(vM / b)     # max
-        m = b * int(vm / b)         # min
-        elapsed = 0
+    FillCSV(str(n), str(elapsed / x), "./Data/Insert"+str(z == 1)+"customDictionary")
+    elapsed = 0
+    for i in range(0, x):
+        random.seed = i
         start = time.time()
-        d = CustomDictionary(M, m, b)
         for j in range(0, n):
-            d.insert(v[j], v[j])
-        for j in range(0, n):
-            d.search(v[j])
-        for j in range(0, n):
-            d.delete(v[j])
-        elapsed = elapsed + (time.time() - start)
-    FillCSV(str(n), str(elapsed / x), str (b)+"./Data/customDictionarySearch")
-    for i in range(0, x):           #   numero di test
-        v = input(i, n, z)
-        M = b + b * int(vM / b)     # max
-        m = b * int(vm / b)         # min
-        elapsed = 0
+            d.search(input(n, z))
+        elapsed += time.time() - start
+    FillCSV(str(n), str(elapsed / x), "./Data/Search"+str(z == 1)+"customDictionary")
+    elapsed = 0
+    for i in range(0, x):
+        random.seed = i
         start = time.time()
-        d = CustomDictionary(M, m, b)
         for j in range(0, n):
-            d.insert(v[j], v[j])
+            d.delete(input(n, z))
+        elapsed += time.time() - start
+    FillCSV(str(n), str(elapsed / x), "./Data/Deleate"+str(z == 1)+"customDictionary")
+
+def testYolo(n, z, b, vM, vm):
+    """
+    :param n: numero di operazioni da effettuare
+    :param z: indice di dispersione >=1
+    :param b:
+    :param vM: parametro per calcolare il massimo
+    :param vm: parametro per calcolare il minimo
+    :return:
+    """
+    elapsed = 0
+    for i in range(0, x):
+        random.seed(i)
+        start = time.time()
+        d = CustomDictionary(b + b * int(vM / b), b * int(vm / b), b)
         for j in range(0, n):
-            d.search(v[j])
+            d.insert(input(n, z), input(n, z))
         for j in range(0, n):
-            d.delete(v[j])
-        elapsed = elapsed + (time.time() - start)
-    FillCSV(str(n), str(elapsed / x), str (b)+"./Data/customDictionaryDeleate")
+            d.search(input(n, z))
+        for j in range(0, n):
+            d.delete(input(n, z))
+        elapsed += time.time() - start
+    FillCSV(str(b), str(elapsed / x), "./Data/Range ("+str(vm)+","+str(vM)+")-UtilizzoCustomDictionary")
 
 def testDictionary(n):
     """
@@ -104,65 +105,69 @@ def testDictionary(n):
     """
     elapsed = 0
     for i in range(0, x):
-        v = input(i, n)
+        random.seed = i
         start = time.time()
         d = {}
         for j in range(0, n):
-            d[v[j]] = v[j]
+            d[input(n)] = input(n)
         for j in range(0, n):
-            d.get(v[j])
+            d.get(input(n))
         for j in range(0, n):
             try:
-                d.pop(v[j])
+                d.pop(input(n))
             except:
                 None
         elapsed += time.time() - start
-    FillCSV(str(n), str(elapsed / x), "./Data/pyDictionaryUtilizzo")
+    FillCSV(str(n), str(elapsed / x), "./Data/UtilizzoPyDictionary")
     elapsed = 0
     d = {}
     for i in range(0, x):
-        v = input(i, n)
+        random.seed = i
         start = time.time()
         for j in range(0, n):
-            d[v[j]] = v[j]
+            d[input(n)] = input(n)
         elapsed += time.time() - start
-    FillCSV(str(n), str(elapsed / x), "./Data/pyDictionaryInsert")
+    FillCSV(str(n), str(elapsed / x), "./Data/InsertPyDictionary")
     elapsed = 0
     for i in range(0, x):
-        v = input(i, n)
+        random.seed = i
         d = {}
         start = time.time()
         for j in range(0, n):
-            d.get(v[j])
+            d.get(input(n))
         elapsed += time.time() - start
-    FillCSV(str(n), str(elapsed / x), "./Data/pyDictionarySearch")
+    FillCSV(str(n), str(elapsed / x), "./Data/SearchPyDictionary")
     elapsed = 0
     for i in range(0, x):
-        v = input(i, n)
+        random.seed = i
         d = {}
         start = time.time()
         for j in range(0, n):
             try:
-                d.pop(v[j])
+                d.pop(input(n))
             except:
                 None
         elapsed += time.time() - start
-    FillCSV(str(n), str(elapsed / x), "./Data/pyDictionaryDeleate")
+    FillCSV(str(n), str(elapsed / x), "./Data/DeleatePyDictionary")
 
 if __name__ == "__main__":
+    print("primo test: PyDictionary\n")
     for i in range(2,5):
         testDictionary(10**i)
+    print("secondo test: Custom dictionary, range di max e min comprendono i valori delle key testate\n")
+    for j in range(2,5):
+        testSwag(10**j, 1, 1024, 500 * 10**j, -500 * 10**j)
+    print("terzo test: Custom dictionary, range di max e min comprendono i valori delle key testate\n")
+    for j in range(2,5):
+        testSwag(10**j, 1000, 1024, 500 * 10**j, -500 * 10**j)
+    #print("quarto test: Custom dictionary, b ottimale\n")
     '''
-    print("primo test: range di max e min comprendono i valori delle key testate\n")
-    z = 1
-    for i in range(1,4):
-        y = 10 * (10**i)
-        print("test con\t" + str(y) + "\telementi\n")
-        testSwag(6 + 2**i, 500 * y, -500 * y)
-
-    print("secondo test: range di max e min comprendono i valori delle key testate\n")
-    z = 100
-    for i in range(1,4):
-        print("test con\t" + str(y) + "\telementi\n")
-        testSwag(6 + 2**i, 500 * y, -500 * y)
+    Test che misura l'efficienza della struttura dati per 1000 inserimenti tra vari range
+    con b che varia tra le potenze di 2
+    '''
+    '''
+    for i in range(2,5):
+        for j in range(7,19):
+            testYolo(1000, 1, 2**j, 500 * 10**i, -500 * 10**i)
+        print(str(i)-1+"/3")
     '''
