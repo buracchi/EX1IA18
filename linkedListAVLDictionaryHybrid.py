@@ -31,7 +31,7 @@ class LinkedListAVLDictionaryHybrid:
         """
         AvlTree: O(logn)
         LinkedListDictionary O(1)
-        il costo sale a O(nlogn) nel caso si entri nella condizione descritta dall'if
+        il costo sale a O(rlogr) nel caso si entri nella condizione descritta dall'if
 
         :param key, value:
         """
@@ -43,7 +43,7 @@ class LinkedListAVLDictionaryHybrid:
         """
         AvlTree: O(logn)
         LinkedListDictionary O(n)
-        il costo diventa O(n) nel caso si entri nella condizione descritta dall'if
+        il costo diventa O(r) nel caso si entri nella condizione descritta dall'if
 
         :param key:
         """
