@@ -49,12 +49,13 @@ class CustomDictionary:
     """
     I tre metodi insert, delete e search del customDictionary derivano
     dalla classe LinkedListAVLDictionaryHybrid, pertanto hanno stessi
-    costi e parametris
+    costi e parametri nel caso peggiore, mentre nel caso ideale hanno
+    costo in funzione di b, costante.
     """
 
     def insert(self, key, value):
         """
-        AvlTree: O(logn)
+        AvlTree: O(logn), O(logb) nel caso i appartenga ai primi d elementi dell'array
         LinkedListDictionary O(1)
 
         :param key, value:
@@ -65,8 +66,8 @@ class CustomDictionary:
 
     def delete(self, key):
         """
-        AvlTree: O(logn)
-        LinkedListDictionary O(n)
+        AvlTree: O(logn), O(logb) nel caso i appartenga ai primi d elementi dell'array
+        LinkedListDictionary O(n), O(b) nel caso i appartenga ai primi d elementi dell'array
 
         :param key:
         """
@@ -75,8 +76,8 @@ class CustomDictionary:
 
     def search(self, key):
         """
-        AvlTree: O(logn)
-        LinkedListDictionary O(n)
+        AvlTree: O(logn), O(logb) nel caso i appartenga ai primi d elementi dell'array
+        LinkedListDictionary O(n), O(b) nel caso i appartenga ai primi d elementi dell'array
         """
         i = self.getIndexFromKey(key)
         return self.v[i].search(key)
