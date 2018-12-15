@@ -31,8 +31,6 @@ class LinkedListAVLDictionaryHybrid:
         """
         AvlTree: O(logn)
         LinkedListDictionary O(1)
-        il costo sale a O(rlogr) nel caso si entri nella condizione descritta dall'if
-
         :param key, value:
         """
         self.dataStructure.insert(key, value)
@@ -42,9 +40,7 @@ class LinkedListAVLDictionaryHybrid:
     def delete(self, key):
         """
         AvlTree: O(logn)
-        LinkedListDictionary O(n)
-        il costo diventa O(r) nel caso si entri nella condizione descritta dall'if
-
+        LinkedListDictionary O(1)
         :param key:
         """
 
@@ -55,15 +51,14 @@ class LinkedListAVLDictionaryHybrid:
     def search(self, key):
         """
         AvlTree: O(logn)
-        LinkedListDictionary O(n)
+        LinkedListDictionary O(1)
         """
         return self.dataStructure.search(key)
 
 
     def switchToAVL(self):
         """
-        O(nlogn)
-
+        O(nlogn), per via delle meccainche della struttua dati O(1)
         :return AvlTree:
         """
         AVL = AVLTree()
@@ -77,7 +72,7 @@ class LinkedListAVLDictionaryHybrid:
 
     def switchToLinkedList(self):
         """
-        O(n)
+        O(n), per via delle meccainche della struttua dati O(1)
 
         :return LinkedListDictionary:
         """
